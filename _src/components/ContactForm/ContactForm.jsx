@@ -4,9 +4,6 @@ import * as Yup from "yup";
 
 import styles from "./ContactForm.module.css";
 
-import { useDispatch } from "react-redux";
-import { contactsActions } from "../../redux/contactsSlice";
-
 const validationControlShecma = Yup.object().shape({
   name: Yup.string()
     .min(3, "Field is too short!")
@@ -18,8 +15,7 @@ const validationControlShecma = Yup.object().shape({
     .required("Field is required"),
 });
 
-export const ContactForm = () => {
-  const dispatch = useDispatch()
+export const ContactForm = ({ handlerAddContact }) => {
 
   const nameFieldId = useId();
   const numberFieldId = useId();
@@ -28,10 +24,6 @@ export const ContactForm = () => {
     name: "",
     number: "",
   };
-
-  const handlerAddContact = (newContact) => {
-    dispatch(contactsActions.addContact(newContact))
-  }
 
   const handleSubmit = (values, actions) => {
 

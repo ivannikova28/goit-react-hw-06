@@ -3,15 +3,13 @@ import { IoPerson } from "react-icons/io5";
 
 import styles from "./Contact.module.css";
 
-
 export const Contact = ({ contact, handlerDeleteContact }) => {
-
   const { id, name, phone: number } = contact;
 
   const onDelete = () => {
     handlerDeleteContact(id)
   }
-
+  
   return (
     <div className={styles.fullContact}>
       <div className={styles.contactInfo}>
